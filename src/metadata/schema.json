@@ -962,7 +962,7 @@
                     "name": "searchQuery",
                     "type": "String",
                     "info": "Full-text search query string.",
-                    "required": true,
+                    "required": false,
                     "vendorSchema": {
                         "name": "q"
                     }
@@ -986,7 +986,7 @@
             ],
             "vendorRequest": {
                 "url": "https:\/\/www.googleapis.com\/books\/v1\/mylibrary\/bookshelves\/{$data['shelf']}\/volumes",
-                "method": "post",
+                "method": "get",
                 "requestParameters": [
                     {
                         "type": "query",

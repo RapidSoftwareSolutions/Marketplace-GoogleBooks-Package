@@ -4,7 +4,7 @@ $app->post('/api/GoogleBooks/getMyBookShelvesVolumesList', function ($request, $
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['accessToken','shelf','searchQuery']);
+    $validateRes = $checkRequest->validate($request, ['accessToken','shelf']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,8 +12,8 @@ $app->post('/api/GoogleBooks/getMyBookShelvesVolumesList', function ($request, $
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken'=>'access_token','shelf'=>'shelf','searchQuery'=>'q'];
-    $optionalParams = ['maxResults'=>'maxResults','source'=>'source','projection'=>'projection','showPreorders'=>'showPreorders','startIndex'=>'startIndex'];
+    $requiredParams = ['accessToken'=>'access_token','shelf'=>'shelf'];
+    $optionalParams = ['searchQuery'=>'q','maxResults'=>'maxResults','source'=>'source','projection'=>'projection','showPreorders'=>'showPreorders','startIndex'=>'startIndex'];
     $bodyParams = [
        'query' => ['source','access_token','maxResults','projection','q','showPreorders','source','startIndex']
     ];
@@ -25,14 +25,12 @@ $app->post('/api/GoogleBooks/getMyBookShelvesVolumesList', function ($request, $
     $client = $this->httpClient;
     $query_str = "https://www.googleapis.com/books/v1/mylibrary/bookshelves/{$data['shelf']}/volumes";
 
-    
-
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
      
 
     try {
-        $resp = $client->post($query_str, $requestParams);
+        $resp = $client->get($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
         if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
