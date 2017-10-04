@@ -542,7 +542,7 @@
                 {
                     "name": "maxResults",
                     "type": "Number",
-                    "info": "Maximum number of results to return. Acceptable values are 0 to 40, inclusive.",
+                    "info": "Maximum number of results to return.",
                     "required": false
                 },
                 {
@@ -654,7 +654,7 @@
         },
         {
             "name": "deleteAllVolumesFromBookshelf",
-            "description": "Adds a volume to a bookshelf.",
+            "description": "Removes a volume from a bookshelf.",
             "args": [
                 {
                     "name": "accessToken",
@@ -824,7 +824,7 @@
                 {
                     "name": "volumePosition",
                     "type": "String",
-                    "info": "Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on.)",
+                    "info": "Position on shelf to move the item (Only in first position).",
                     "required": true
                 },
                 {
@@ -939,7 +939,7 @@
                 {
                     "name": "maxResults",
                     "type": "Number",
-                    "info": "Maximum number of results to return. Acceptable values are 0 to 40, inclusive.",
+                    "info": "Maximum number of results to return.",
                     "required": false
                 },
                 {

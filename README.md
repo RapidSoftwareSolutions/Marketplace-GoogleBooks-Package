@@ -106,7 +106,7 @@ Retrieves volumes in a specific bookshelf for the specified user.
 | accessToken  | String| Access Token. Use getAccessToken to get it.
 | shelfId      | String| ID of bookshelf to retrieve.
 | userId       | String| ID of user for whom to retrieve bookshelves.
-| maxResults   | Number| Maximum number of results to return. Acceptable values are 0 to 40, inclusive.
+| maxResults   | Number| Maximum number of results to return.
 | showPreorders| Select| Set to true to show books available for preorder. Defaults to false.
 | source       | String| String to identify the originator of this request.
 | startIndex   | Number| Index of the first result to return (starts at 0).
@@ -122,7 +122,7 @@ Adds a volume to a bookshelf.
 | source     | String| String to identify the originator of this request.
 
 ## GoogleBooks.deleteAllVolumesFromBookshelf
-Adds a volume to a bookshelf.
+Removes a volume from a bookshelf.
 
 | Field      | Type  | Description
 |------------|-------|----------
@@ -155,7 +155,7 @@ Moves a volume within a bookshelf.
 | accessToken   | String| Access Token.Use getAccessToken to get it.
 | shelfId       | String| ID of bookshelf to which to add a volume.
 | volumeId      | String| ID of volume to move.
-| volumePosition| String| Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on.)
+| volumePosition| String| Position on shelf to move (Only in first position).
 | source        | String| String to identify the originator of this request.
 
 ## GoogleBooks.removeVolumeFromBookshelves
@@ -175,7 +175,7 @@ Gets volume information for volumes on a bookshelf.
 |--------------|-------|----------
 | accessToken  | String| Access Token.Use getAccessToken to get it.
 | shelf        | String| The bookshelf ID or name retrieve volumes for.
-| maxResults   | Number| Maximum number of results to return. Acceptable values are 0 to 40, inclusive.
+| maxResults   | Number| Maximum number of results to return.
 | source       | String| String to identify the originator of this request.
 | projection   | Select| Restrict information returned to a set of selected fields.`full` - Includes all volume data.`lite` - Includes a subset of fields in volumeInfo and accessInfo.
 | searchQuery  | String| Full-text search query string.
