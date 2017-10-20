@@ -29,7 +29,8 @@ $app->post('/api/GoogleBooks/getBookshelf', function ($request, $response) {
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
-     
+    $requestParams['query']['country'] = 'US';
+
 
     try {
         $resp = $client->get($query_str, $requestParams);

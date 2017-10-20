@@ -29,7 +29,8 @@ $app->post('/api/GoogleBooks/removeVolumeFromBookshelves', function ($request, $
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
-     
+    $requestParams['query']['country'] = 'US';
+
 
     try {
         $resp = $client->post($query_str, $requestParams);

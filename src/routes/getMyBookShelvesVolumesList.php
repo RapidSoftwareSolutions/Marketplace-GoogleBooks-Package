@@ -27,7 +27,8 @@ $app->post('/api/GoogleBooks/getMyBookShelvesVolumesList', function ($request, $
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
-     
+    $requestParams['query']['country'] = 'US';
+
 
     try {
         $resp = $client->get($query_str, $requestParams);

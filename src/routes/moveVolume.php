@@ -29,7 +29,8 @@ $app->post('/api/GoogleBooks/moveVolume', function ($request, $response) {
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
-     
+    $requestParams['query']['country'] = 'US';
+
 
     try {
         $resp = $client->post($query_str, $requestParams);
